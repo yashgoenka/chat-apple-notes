@@ -4,14 +4,16 @@
 ![Pull Requests](https://img.shields.io/github/issues-pr/yashgoenka/chat-apple-notes)
 ![Issues](https://img.shields.io/github/issues/yashgoenka/chat-apple-notes)
 
-**RAG + Semantic Search for Apple Notes on CLI**
+**RAG + Semantic Search for Apple Notes**
 
-Chat Apple Notes is a CLI application that allows users to interact with their Apple Notes using GPT-powered AI. This tool enables users to search, query, and chat about their notes in natural language, providing a deeper and more intuitive way to engage with their personal information.
+Chat Apple Notes is a CLI application let's you perform semantic search and Retrieval Augmented Generation (RAG) on Apple Notes using OpenAI's Assistants API.
+
+This tool enables users to search, query, and chat about their notes in natural language, providing a deeper and more intuitive way to engage with their personal information.
 
 ## Features
 
-1. **Upload Notes**: Automatically extract and upload your Apple Notes to a vector store for AI processing.
-2. **Semantic Search**: Perform intelligent searches across your notes using natural language queries and find matches.
+1. **Upload Notes**: Automatically extract and upload your Apple Notes to a vector store.
+2. **Semantic Search**: Perform semantic searches across your notes using natural language queries and find matches.
 3. **Ask Questions**: Get answers to specific questions using the information in your notes.
 4. **Interactive Chat**: Engage in a conversation about your notes with an AI assistant.
 
@@ -49,9 +51,9 @@ You'll be presented with a welcome screen and a list of available commands.
 
 1. **Note Extraction**: The application uses AppleScript to extract notes from the Apple Notes application.
 
-2. **Vector Store**: Extracted notes are processed and stored in a vector database, allowing for efficient semantic searching.
+2. **Vector Store**: Extracted notes are vectorized and stored in a vector database for semantic search.
 
-3. **OpenAI Integration**: The application uses OpenAI's GPT model to understand and respond to your queries and conversations.
+3. **OpenAI Integration**: The application uses OpenAI's GPT-4o Assistant API for queries, vector store, and conversations.
 
 4. **Interactive CLI**: The Typer library is used to create an intuitive command-line interface for interacting with your notes.
 
