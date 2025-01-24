@@ -1,6 +1,11 @@
 # Chat Apple Notes
-RAG + Semantic Search for Apple Notes on CLI
 ![License](https://img.shields.io/github/license/yashgoenka/chat-apple-notes)
+![Stars](https://img.shields.io/github/stars/yashgoenka/chat-apple-notes)
+![Pull Requests](https://img.shields.io/github/issues-pr/yashgoenka/chat-apple-notes)
+![Issues](https://img.shields.io/github/issues/yashgoenka/chat-apple-notes)
+
+RAG + Semantic Search for Apple Notes on CLI
+
 Chat Apple Notes is a CLI application that allows users to interact with their Apple Notes using GPT-powered AI. This tool enables users to search, query, and chat about their notes in natural language, providing a deeper and more intuitive way to engage with their personal information.
 
 ## Features
