@@ -326,3 +326,136 @@ class NotesAssistant:
         self.config.update_config(disk_privileges=disk_privileges)
         typer.echo(f"Disk privileges {'enabled' if disk_privileges else 'disabled'}.")
 
+def display_welcome_animation() -> None:
+    """Display a welcome animation with the Apple Notes Assistant logo."""
+    logo = """
+      .:'                _   _       _            
+    ** :'**            | \\ | |     | |           
+ .'`__`-'__``.         |  \\| | __ | |_ ___  ___ 
+:__________.-'         | . ` |/ * \\| *_/ * \\/ *_|
+:_________:            | |\\  | (_) | ||  **/\\** \\
+ :_________`-;         |_| \\_|\\___/ \\__\\___||___/
+ `.__.-.__.'
+    """
+    typer.echo("Welcome to Apple Notes Assistant!")
+    for line in logo.split('\n'):
+        typer.echo(line)
+        time.sleep(0.1)
+
+def display_main_functions() -> None:
+    """Display the main functions available in the Apple Notes Assistant."""
+    typer.echo("\nAvailable commands:")
+    typer.echo("• upload: Extract notes and add them to the vector store")
+    typer.echo("• search: Perform a semantic search on your notes")
+    typer.echo("• ask: Ask a question about your notes")
+    typer.echo("• chat: Start a chat session with the assistant")
+    typer.echo("• update-api: Update the OpenAI API key")
+    typer.echo("• update-privileges: Update disk privileges")
+    typer.echo("• help: Display this help message")
+    typer.echo("• quit: Exit the application")
+    typer.echo("Once set up is complete you can use subcommands like chat_apple_notes search \"your query here\" or chat_apple_notes chat")
+
+@app.command()
+def interactive():
+    """Start the interactive shell for the Apple Notes Assistant."""
+    display_welcome_animation()
+    display_main_functions()
+    notes_assistant = NotesAssistant()
+    typer.echo("\nStarting the interactive shell. Type 'quit' to exit the shell.")
+    typer.echo("Using saved OpenAI API key. You can update it by editing the config file.")
+    while True:
+        command = typer.prompt("Command")
+        if command.lower() == "quit":
+            break
+        elif command.lower() == "help":
+            display_main_functions()
+        else:
+            process_command(command, notes_assistant)
+
+def process_command(command: str, notes_assistant: NotesAssistant):
+    try:
+        if command == "upload":
+            notes_assistant.upload()
+        elif command.startswith("search"):
+            _, *query = command.split(maxsplit=1)
+            notes_assistant.search(" ".join(query) if query else None)
+        elif command.startswith("ask"):
+            _, *question = command.split(maxsplit=1)
+            notes_assistant.ask(" ".join(question) if question else None)
+        elif command == "chat":
+            notes_assistant.chat()
+        elif command.startswith("update-api"):
+            _, *args = command.split(maxsplit=1)
+            notes_assistant.update_api(args[0] if args else None)
+        elif command.startswith("update-privileges"):
+            _, *args = command.split(maxsplit=1)
+            if args:
+                dp_value = args[0].lower() in ['y', 'yes', 'true', '1']
+                notes_assistant.update_privileges(dp_value)
+            else:
+                notes_assistant.update_privileges()
+        else:
+            typer.echo(f"Unknown command: {command}")
+    except Exception as e:
+        typer.echo(f"Error: {e}")
+
+@app.command()
+def upload():
+    """Extract notes and add them to the vector store"""
+    try:
+        notes_assistant = NotesAssistant()
+        notes_assistant.upload()
+    except Exception as e:
+        typer.echo(f"Error during upload: {e}")
+
+@app.command()
+def search(query: Optional[str] = typer.Argument(None)):
+    """Perform a semantic search on your notes"""
+    try:
+        notes_assistant = NotesAssistant()
+        notes_assistant.search(query)
+    except Exception as e:
+        typer.echo(f"Error during search: {e}")
+
+@app.command()
+def ask(question: Optional[str] = typer.Argument(None)):
+    """Ask a question about your notes"""
+    try:
+        notes_assistant = NotesAssistant()
+        notes_assistant.ask(question)
+    except Exception as e:
+        typer.echo(f"Error while asking question: {e}")
+
+@app.command()
+def chat():
+    """Start a chat session with the assistant"""
+    try:
+        notes_assistant = NotesAssistant()
+        notes_assistant.chat()
+    except Exception as e:
+        typer.echo(f"Error during chat session: {e}")
+
+@app.command()
+def update_api(api_key: Optional[str] = typer.Argument(None)):
+    """Update the OpenAI API key"""
+    notes_assistant = NotesAssistant()
+    notes_assistant.update_api(api_key)
+
+@app.command()
+def update_privileges(disk_privileges: Optional[bool] = typer.Argument(None)):
+    """Update disk privileges"""
+    notes_assistant = NotesAssistant()
+    notes_assistant.update_privileges(disk_privileges)
+
+@app.callback(invoke_without_command=True)
+def main(ctx: typer.Context):
+    """Apple Notes Assistant - Interact with your Apple Notes using GPT"""
+    if ctx.invoked_subcommand is None:
+        if len(sys.argv) > 1:
+            notes_assistant = NotesAssistant()
+            process_command(" ".join(sys.argv[1:]), notes_assistant)
+        else:
+            interactive()
+
+if __name__ == "__main__":
+    app()
