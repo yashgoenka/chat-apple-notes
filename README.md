@@ -30,8 +30,19 @@ cd chat-apple-notes
 pip install -r requirements.txt
 
 # Launch CLI
-python main.py start-shell
+python chat_apple_notes.py
 ```
+
+## Terminal Disk Access Setup
+
+Before using the application, you'll need to grant Full Disk Access to Terminal (or your preferred terminal emulator) in macOS System Settings. This is required for the application to access your Apple Notes.
+
+1. Open System Settings
+2. Navigate to Privacy & Security > Full Disk Access
+3. Ensure the toggle next to Terminal is enabled
+
+![Terminal Full Disk Access Settings](docs/terminal_disk_access.png)
+
 
 ## Command Reference
 
@@ -53,19 +64,59 @@ Updates stored OpenAI API key.
 ### `update-privileges`
 Toggles disk access for clickable note links. Required for initial upload and hyperlink functionality.
 
-```bash
-# Initialize vector store and upload notes
-python main.py upload
 
+
+## Getting Started
+
+The recommended way to begin is by entering the CLI interface:
+
+```bash
+python chat_apple_notes.py
+#greeted with welcome message and instructions
+#enter api key
+command: upload
+#upload complete
+command: search "query string"
+#search complete
+command: ask "specific question"
+#ask complete
+command: chat
+#chat complete
+```
+
+Alternatively, you can execute commands directly from the terminal:
+
+```bash
 # Semantic search across notes
-python main.py search "query string"
+python chat_apple_notes.py search "query string"
 
 # RAG-based question answering
-python main.py ask "specific question"
+python chat_apple_notes.py ask "specific question"
 
 # Interactive chat session with context
-python main.py chat
+python chat_apple_notes.py chat
 ```
+
+## Note: The initial upload process occurs in two phases:
+
+1. **Note Extraction & Parsing** (5-15 minutes)
+   - AppleScript extracts all notes and metadata
+   - Content is parsed and hashed locally
+   - Progress bar shows notes processed
+
+2. **Vectorization & Upload** (10 minutes - 2 hours)
+   - Notes are batched for embedding generation
+   - Vectors uploaded to OpenAI's store
+   - Rate limited by OpenAI's API quotas
+   - Progress bar shows upload status
+
+The duration depends on:
+- Total number of notes
+- Average note length
+- OpenAI API rate limits
+- System performance
+
+This is a one-time setup process. Subsequent uploads/updates will only process new or modified notes based on content hashing.
 
 ## Implementation Details
 
