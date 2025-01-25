@@ -1,7 +1,7 @@
 # Chat Apple Notes
 
-![License](https://img.shields.io/github/license/yashgoenka/chat-apple-notes)
 ![Stars](https://img.shields.io/github/stars/yashgoenka/chat-apple-notes)
+![License](https://img.shields.io/github/license/yashgoenka/chat-apple-notes)
 ![Pull Requests](https://img.shields.io/github/issues-pr/yashgoenka/chat-apple-notes)
 ![Issues](https://img.shields.io/github/issues/yashgoenka/chat-apple-notes)
 
