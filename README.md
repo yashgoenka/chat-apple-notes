@@ -4,6 +4,8 @@
 ![Pull Requests](https://img.shields.io/github/issues-pr/yashgoenka/chat-apple-notes)
 ![Issues](https://img.shields.io/github/issues/yashgoenka/chat-apple-notes)
 ![Stars](https://img.shields.io/github/stars/yashgoenka/chat-apple-notes)
+[![Twitter Follow](https://img.shields.io/twitter/follow/theyashgoenka?style=social)](https://twitter.com/theyashgoenka)
+
 
 A CLI application implementing RAG (Retrieval Augmented Generation) and semantic search for Apple Notes using OpenAI's Assistants API. The tool vectorizes your notes into embeddings, enabling natural language querying through OpenAI's vector store.
 
