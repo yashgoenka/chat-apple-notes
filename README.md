@@ -41,30 +41,7 @@ Before using the application, you'll need to grant Full Disk Access to Terminal 
 2. Navigate to Privacy & Security > Full Disk Access
 3. Ensure the toggle next to Terminal is enabled
 
-![Terminal Full Disk Access Settings](docs/terminal_disk_access.png)
-
-
-## Command Reference
-
-### `upload`
-Extracts notes via AppleScript, vectorizes content, and uploads to OpenAI's vector store. Tracks changes through content hashing to avoid duplicate uploads.
-
-### `search <query>`
-Performs semantic search across vectorized notes using cosine similarity. Returns contextually relevant matches with clickable note links (requires disk access privileges).
-
-### `ask <question>`
-Executes RAG using the vector store as context to generate answers grounded in your notes' content.
-
-### `chat`
-Initiates a stateful conversation, maintaining context through OpenAI's thread management. The assistant references relevant notes during the conversation.
-
-### `update-api`
-Updates stored OpenAI API key.
-
-### `update-privileges`
-Toggles disk access for clickable note links. Required for initial upload and hyperlink functionality.
-
-
+<img src="docs/terminal_disk_access.png" width="600" alt="Terminal Full Disk Access Settings"/>
 
 ## Getting Started
 
@@ -117,6 +94,26 @@ The duration depends on:
 - System performance
 
 This is a one-time setup process. Subsequent uploads/updates will only process new or modified notes based on content hashing.
+
+## Command Reference
+
+### `upload`
+Extracts notes via AppleScript, vectorizes content, and uploads to OpenAI's vector store. Tracks changes through content hashing to avoid duplicate uploads.
+
+### `search <query>`
+Performs semantic search across vectorized notes using cosine similarity. Returns contextually relevant matches with clickable note links (requires disk access privileges).
+
+### `ask <question>`
+Executes RAG using the vector store as context to generate answers grounded in your notes' content.
+
+### `chat`
+Initiates a stateful conversation, maintaining context through OpenAI's thread management. The assistant references relevant notes during the conversation.
+
+### `update-api`
+Updates stored OpenAI API key.
+
+### `update-privileges`
+Toggles disk access for clickable note links. Required for initial upload and hyperlink functionality.
 
 ## Implementation Details
 
