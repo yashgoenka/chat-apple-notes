@@ -51,14 +51,45 @@ The recommended way to begin is by entering the CLI interface:
 python chat_apple_notes.py
 #greeted with welcome message and instructions
 #enter api key
-command: upload
-#upload complete
-command: search "query string"
-#search complete
-command: ask "specific question"
-#ask complete
-command: chat
-#chat complete
+Command: upload
+#Parsing note 1142 of 1142  [####################################]  100%          
+#Extracted 1142 notes. 1142 are new or updated.
+#Uploading new or updated notes to vector store...
+#Uploading note 1142 of 1142  [####################################]  100%          
+#Added 1142 new or updated notes to the vector store.
+Command: search
+#Enter your search query:
+#semantic search results 
+Command: search "query string"
+#semantic search results
+Command: ask
+#Enter your question: what's phonecall.bot?
+#Answering...
+#Phonecall.bot is an AI-powered phone automation service by Orange AI Inc. that creates hyper-realistic AI phone agents. It allows businesses to automate both inbound and outbound calls using advanced conversational AI technology. Some key features include hyper-realistic voice options, multilingual support, automated appointment booking, human transfer capability, and knowledge integration for contextual awareness. The platform offers 60+ unique voices in 15+ languages and includes a no-code AI agent builder with custom conversation paths. It integrates with calendars, CRMs, and other tools, aiming to streamline operations, enhance customer support, and scale communication without the need for human agents【4:0†note_30.txt】.
+Command: ask "Write a welcome email for Tom from Molar Bear Dentistry explaining them phonecall.bot features"
+#Answering...
+#Certainly! Here's a draft for a welcome email to Molar Bear Dentistry, introducing them to the features of Phonecall.bot:
+#---
+#Subject: Welcome to the Future of Patient Communication with Phonecall.bot
+#Hey Tom,
+#We are thrilled to welcome  Molar Bear Dentistry to the Phonecall.bot family! We are committed to enhancing your communication capabilities, allowing you to focus more on what you do best—providing exceptional dental care to your patients.
+#
+#**Explore What Phonecall.bot Can Do for You:**
+#- **AI-Powered Agents:** Our platform offers hyper-realistic,...
+Command: chat
+#Continuing previous chat session.
+#Type 'exit' to end the conversation.
+#You: Do you know who I am? My name?
+#Assistant: Based on the information from the documents, your name is Yash, and you are associated with the company Phonecall.bot【22:0†source】.
+#You: What hobbies do I like to do?
+#Assistant: Based on the documents, your hobbies include playing tennis, golf, grabbing drinks with friends, and occasionally oil painting【26:0†file-YMae4u6E2SSWv8kz2WZYib】【26:3†file-8VmDeabvm89A3gGXtWe7i8】. Additionally, you have interests in painting/drawing, going to the beach, traveling, and surfing【26:8†file-Ns9uJ7awM4FdNuPJapaAta】.
+#You: What supplements do I take?
+#Assistant: The list of supplements you take includes:
+#- Vitamin D3
+#- Vitamin B12
+#- DHA, Omega 3, Omega 6
+#- Life Extension Multivitamin
+#You: 
 ```
 
 Alternatively, you can execute commands directly from the terminal:
