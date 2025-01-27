@@ -239,6 +239,11 @@ class NotesAssistant:
             query = typer.prompt("Enter your search query")
         thread = self.client.beta.threads.create()
         typer.echo("Searching...")
+        self.client.beta.threads.messages.create(
+            thread_id=thread.id,
+            role="user",
+            content=query
+        )
         results = ""
         instructions = f"Search for the following query and return the top results: {query}. Start your response with I found x number of relevant notes, then newline. Do not return more than 5 results, though you can return less. For each result, return the note's title and 2 sentence description."
         if self.config.disk_privileges:
