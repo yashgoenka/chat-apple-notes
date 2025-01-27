@@ -9,6 +9,10 @@
 
 A CLI application implementing RAG (Retrieval Augmented Generation) and semantic search for Apple Notes using OpenAI's Assistants API. The tool vectorizes your notes into embeddings, enabling natural language querying through OpenAI's vector store.
 
+https://github.com/user-attachments/assets/3f62b195-d580-46cb-bc9b-4563a6023839
+
+*Demo: Chat Apple Notes in action*
+
 ## Key Features
 
 - **Vector Store Integration**: Extracts Apple Notes via AppleScript and creates embeddings using OpenAI's vector store
