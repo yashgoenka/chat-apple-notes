@@ -39,16 +39,6 @@ pip install -r requirements.txt
 python chat_apple_notes.py
 ```
 
-## Terminal Disk Access Setup
-
-Before using the application, you'll need to grant Full Disk Access to Terminal (or your preferred terminal emulator) in macOS System Settings. This is required for the application to access your Apple Notes.
-
-1. Open System Settings
-2. Navigate to Privacy & Security > Full Disk Access
-3. Ensure the toggle next to Terminal is enabled
-
-<img src="docs/terminal_disk_access.png" width="600" alt="Terminal Full Disk Access Settings"/>
-
 ## Getting Started
 
 The recommended way to begin is by entering the CLI interface:
@@ -187,6 +177,16 @@ AppleScript Extraction -> SQLite ID Mapping -> Vector Store Embedding -> GPT-4o 
 - Content is sent to OpenAI for embedding generation and RAG
 - API keys stored locally in `~/chat_apple_notes_config.json`
 - Optional disk access required for hyperlink functionality
+
+## Terminal Disk Access Setup
+
+You'll need to grant Full Disk Access to Terminal (or your preferred terminal emulator) in macOS System Settings. This is required for the note hyperlink functionality.
+
+1. Open System Settings
+2. Navigate to Privacy & Security > Full Disk Access
+3. Ensure the toggle next to Terminal is enabled
+
+<img src="docs/terminal_disk_access.png" width="600" alt="Terminal Full Disk Access Settings"/>
 
 ## Limitations
 
