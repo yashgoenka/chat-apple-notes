@@ -146,7 +146,7 @@ Toggles disk access for clickable note links. Required for initial upload and hy
 
 - Uses AppleScript for native Notes.app interaction
 - Implements SHA-256 content hashing for change detection
-- Leverages OpenAI's Assistant API with GPT-4 for RAG capabilities
+- Leverages OpenAI's Assistant API with GPT-4o for RAG capabilities
 - Manages conversation state through OpenAI's thread system
 - SQLite integration for note identifier resolution
 
